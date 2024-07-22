@@ -7,35 +7,35 @@ This is a .NET Core Web API project designed to manage a repository of vehicles,
 - **DELETE**: Delete a car from the repository.
 
 # API Endpoints
-#GetById
+***GetById***
 - **Endpoint**: `/api/vehicle{Car,Bus,Boat}/GetById/{id}`
 - **Method**: `GET`
 - **Path Parameters**:
   - `id`: The ID of the vehicle to retrieve
     
-#GetAll
+***GetAll***
 - **Endpoint**: `/api/vehicle{Car,Bus,Boat}/GetAll`
 - **Method**: `GET`
 
-#Create
+***Create***
 - **Endpoint**: `/api/vehicle{Car,Bus,Boat}/Create`
 - **Method**: `POST`
 - **Body Parameters**:
   - Vehicle details (depends on type of vehicle)
     
-#Update
+***Update***
 - **Endpoint**: `/api/vehicle{Car,Bus,Boat}/Update`
 - **Method**: `PUT`
 - **Body Parameters**:
   - Updated vehicle details
     
-#Delete
+***Delete***
 - **Endpoint**: `/api/vehicle{Car,Bus,Boat}/Delete/{id}`
 - **Method**: `DELETE`
 - **Path Parameters**:
   - `id`: The ID of the vehicle to delete
     
-#GetByColor
+***GetByColor***
 - **Endpoint**: `/api/vehicle{Car,Bus,Boat}/GetByColor/{color}`
 - **Method**: `GET`
 - **Query Parameters**:
@@ -43,24 +43,24 @@ This is a .NET Core Web API project designed to manage a repository of vehicles,
   
  # Testing with Postman
  
-#GetAll
+GetAll
 ![car_getall](https://github.com/user-attachments/assets/8985942b-b69e-4040-b48f-d8826d930d4d)
 
-#Create Car
+Create Car
 ![car_create](https://github.com/user-attachments/assets/79a9f4d5-ffe6-4cd8-838e-044fd8be6baa)
 
-#GetByColor
+GetByColor
 ![boat_getbycolor](https://github.com/user-attachments/assets/06950a20-5aab-413b-9700-057323fec183)
 
 ![bus_getbycolor](https://github.com/user-attachments/assets/162cb443-5b50-45b5-b1bf-946a28fdb5b9)
 
 ![car_getbycolor](https://github.com/user-attachments/assets/357d2d90-f815-4952-8d52-2386ffbf76b7)
 
-#Delete Car
+Delete Car
 
 ![car_delete](https://github.com/user-attachments/assets/3757a8c2-6dbe-4123-a428-4b4e5cb2dbf3)
 
-#Car HeadLights on/off with id
+Car HeadLights on/off with id
 ![car_headlights1](https://github.com/user-attachments/assets/6f107b70-1333-4da5-9472-6187edb0ef8d)
 
 ![car_headlights2](https://github.com/user-attachments/assets/7722e9e3-a209-4cd4-9cd5-8cf06f50dc86)
