@@ -1,6 +1,9 @@
 # Vehicle Management API
 
 This is a .NET Core Web API project designed to manage a repository of vehicles, including cars, boats, and buses. Vehicles have various attributes such as color, and cars specifically have wheels and headlights. The API allows users to perform CRUD operations and filter vehicles by their attributes.
+- **GET**: Retrieve cars, boats, and buses by color.
+- **POST**: Turn on/off the headlights of a car by its ID.
+- **DELETE**: Delete a car from the repository.
 
 # Technologies Used
 
@@ -9,11 +12,6 @@ This is a .NET Core Web API project designed to manage a repository of vehicles,
 - **Entity Framework Core**: The ORM used for data access and management.
 - **Fluent Validation**: For validating incoming data and ensuring it meets the required criteria.
 - **AutoMapper**: For mapping between domain models and DTOs.
-
-
-- **GET**: Retrieve cars, boats, and buses by color.
-- **POST**: Turn on/off the headlights of a car by its ID.
-- **DELETE**: Delete a car from the repository.
 
 # API Endpoints
 ***GetById***
