@@ -45,7 +45,7 @@ This is a .NET Core Web API project designed to manage a repository of vehicles,
 
 - **Endpoint**: `/api/Car/ChangeHeadlights`
 - **Method**: `POST`
-- ** Parameters**:
+- **Parameters**:
   - `id`: The ID of the car
   - `HeadLightsOn`: `true` to turn on, `false` to turn off
  
