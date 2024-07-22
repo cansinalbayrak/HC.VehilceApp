@@ -36,7 +36,7 @@ namespace HC.VehilceApp.WebApi.Controllers
         [Route("[action]")]
         public async Task<IActionResult> GetByColor(Color color)
         {
-            var result = await _carService.GetAsync(filter: x => x.Color == color);
+            var result = await _carService.GetAllAsync(filter: x => x.Color == color);
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
 
