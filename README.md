@@ -40,7 +40,16 @@ This is a .NET Core Web API project designed to manage a repository of vehicles,
 - **Method**: `GET`
 - **Query Parameters**:
   - `color`: The color of the vehicle (e.g., `red`, `blue`, `black`, `white`)
-  
+
+  ***Turn On/Off Car Headlights***
+
+- **Endpoint**: `/api/Car/ChangeHeadlights`
+- **Method**: `POST`
+- ** Parameters**:
+  - `id`: The ID of the car
+  - `HeadLightsOn`: `true` to turn on, `false` to turn off
+ 
+    
  # Testing with Postman
  
 GetAll
