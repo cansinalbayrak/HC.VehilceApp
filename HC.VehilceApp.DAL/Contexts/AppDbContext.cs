@@ -21,10 +21,7 @@ namespace HC.VehilceApp.DAL.Contexts
         {
             
         }
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseInMemoryDatabase("InMemoryDb");
-        //}
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -46,12 +43,7 @@ namespace HC.VehilceApp.DAL.Contexts
         {
             var entries = ChangeTracker.Entries<BaseEntity>();
 
-            //foreach (var entry in entries)
-            //{
-            //    SetIfAdded(entry);
-            //    SetIfModified(entry);
-            //    SetIfDeleted(entry);
-            //}
+            
             foreach (var entry in entries)
             {
                 switch (entry.State)

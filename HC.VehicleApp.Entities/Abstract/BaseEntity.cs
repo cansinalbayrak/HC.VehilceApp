@@ -15,15 +15,5 @@ namespace HC.VehicleApp.Entities.Abstract
         public DateTime? ModifiedDate { get; set; }
         public DateTime? DeletedDate { get; set; }
 
-        //toDo
-        /*
-         * genericrepo 
-         * db kullanmayacaksan inmemory?? , uow !!
-         * async kullan !!
-         * di cont. unutma !!
-         * swagger => postman unutma !!
-         * auth ekle, baseE değişt??.
-         * new prop ekle endpointleri çeşlitledir
-         */
     }
 }

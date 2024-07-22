@@ -26,14 +26,24 @@ namespace HC.VehilceApp.BLL.Concrete
             _mapper = mapper;
             _uow = uow;
         }
-
+        /// <summary>
+        /// Bir veri siler.
+        /// </summary>
+        /// <param name="id">Silinecek veri kimliği.</param>
+        /// <returns>İşlemin başarı durumunu ve gerekirse verileri içeren bir sonuç nesnesi döndürür.</returns>
         public async Task<IResult> DeleteAsync(Guid id)
         {
             await _uow.GetRepository<T>().DeleteAsync(id);
             await _uow.SaveChangesAsync();
             return new SuccessResult("Deletion successful.");
         }
-
+        /// <summary>
+        /// Tüm veri kayıtlarını getirir.
+        /// </summary>
+        /// <param name="asNoTracking">Verinin izlenmemesi durumunu belirler. Varsayılan true olarak ayarlanmıştır.</param>
+        /// <param name="filter">Veriyi filtrelemek için kullanılacak ifade. Varsayılan null olarak ayarlanmıştır.</param>
+        /// <param name="includeProperties">İlişkili veri tablolarını dahil etmek için kullanılacak ifade listesi.</param>
+        /// <returns>İşlemin başarı durumunu ve gerekirse tüm verileri içeren bir listeyi içeren bir sonuç nesnesi döndürür.</returns>
         public async Task<IResult> GetAllAsync(bool asNoTracking = true, Expression<Func<T, bool>>? filter = null, params Expression<Func<T, object>>[] includeProperties)
         {
             var entities = await _uow.GetRepository<T>().GetAllAsync();
@@ -41,7 +51,13 @@ namespace HC.VehilceApp.BLL.Concrete
             var dtos = _mapper.Map<List<TListDto>>(entities);
             return new SuccessDataResult<List<TListDto>>(dtos, "Listing successful");
         }
-
+        /// <summary>
+        /// Belirtilen filtre kriterlerine göre veri kaydını getirir.
+        /// </summary>
+        /// <param name="asNoTracking">Verinin izlenmemesi durumunu belirler. Varsayılan olarak true  ayarlanmıştır.</param>
+        /// <param name="filter">Veriyi filtrelemek için kullanılacak ifade. Varsayılan olarak null  ayarlanmıştır.</param>
+        /// <param name="includeProperties">İlişkili veri tablolarını dahil etmek için kullanılacak ifade listesi.</param>
+        /// <returns>İşlemin başarı durumunu ve gerekirse verileri içeren bir sonuç nesnesi döndürür.</returns>
         public async Task<IResult> GetAsync(bool asNoTracking = true, Expression<Func<T, bool>>? filter = null, params Expression<Func<T, object>>[] includeProperties)
         {
             var entity = await _uow.GetRepository<T>().GetAsync(asNoTracking, filter, includeProperties);
@@ -49,7 +65,12 @@ namespace HC.VehilceApp.BLL.Concrete
             var dto = _mapper.Map<TListDto>(entity);
             return new SuccessDataResult<TListDto>(dto, "Acquirement successful.");
         }
-
+        /// <summary>
+        /// YBelirtilen verinin detaylarını getirir.
+        /// </summary>
+        /// <param name="id">Detay alınacak veri kimliği.</param>
+        /// <param name="tracking">Veri izleme durumunu belirtir. Varsayılan olarak true  ayarlanmıştır.</param>
+        /// <returns>İşlemin başarı durumunu ve gerekirse verileri içeren bir sonuç nesnesi döndürür.</returns>
         public async Task<IResult> GetByIdAsync(Guid id, bool tracking = true)
         {
             var entity = await _uow.GetRepository<T>().GetByIdAsync(id, tracking);
@@ -57,7 +78,11 @@ namespace HC.VehilceApp.BLL.Concrete
             var dto = _mapper.Map<TListDto>(entity);
             return new SuccessDataResult<TListDto>(dto, "Acquirement successful");
         }
-
+        /// <summary>
+        /// Yeni bir veri ekler.
+        /// </summary>
+        /// <param name="dto">Eklenecek veri.</param>
+        /// <returns>İşlemin başarı durumunu ve gerekirse verileri içeren bir sonuç nesnesi döndürür.</returns>
         public async Task<IResult> InsertAsync(TCreateDto dto)
         {
             var newEntity = _mapper.Map<T>(dto);
@@ -65,7 +90,11 @@ namespace HC.VehilceApp.BLL.Concrete
             await _uow.SaveChangesAsync();
             return new SuccessResult("Insertion successful");
         }
-
+        /// <summary>
+        /// Veriyi günceller.
+        /// </summary>
+        /// <param name="dto">Güncellenecek verileri içeren dto.</param>
+        /// <returns>İşlemin başarı durumunu ve gerekirse verileri içeren bir sonuç nesnesi döndürür.</returns>
         public async Task<IResult> UpdateAsync(TUpdateDto dto)
         {
             var entity = _mapper.Map<T>(dto);
